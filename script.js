@@ -5,16 +5,16 @@ const caixaResultado = document.querySelector('.caixa-resultado');
 
 const perguntas = [ //serve para abrir lista de perguntas
     {//abre o objeto das perguntas
-        enunciado: "Qual dessas aplicacoes e um exemplo de IA generativa?",
-        alternativas: ["Um sistema de recomendacao de filmes com base no historico de visualizacoae","Um modelo de linguagem que cria textos ou imagens originais a partir de descricoes fornecidas"]
+        enunciado: "O que é a inteligencia artficial?",
+        alternativas: ["Uma pessoa considerada não inteligente","Algo que se aproxima da inteligencia humana, porém artificial"]
     },
     {
-        enunciado: "Pergunta 2",
-        alternativas: ["Alternativa 1","Alternativa 2"]
+        enunciado: "As IAs devem ser programadas para:",
+        alternativas: ["Tomar decisões autônomas","Seguir sempre as diretrizes humanas"]
     },
     {
-        enunciado: "Pergunta 3",
-        alternativas: ["Alternativa 1","Alternativa 2"]
+        enunciado: "A IA deve ser usada principalmente para",
+        alternativas: ["Aumentar a eficiência humana","Substituir completamente o trabalho humano"]
     }
 ]
 
@@ -22,14 +22,15 @@ let posicao = 0;
 let perguntaAtual;
 
 function mostraPergunta(){
-    perguntaAtual = pergunta[Atual];
-    caixaPerguntas.textContent = perguntaAtual.enunciado
+    perguntaAtual = perguntas[posicao];
+    caixaPerguntas.textContent = perguntaAtual.enunciado;
+    mostraAlternativas();
 }
-
 function mostraAlternativas(){
-
+    for(const alternativa of perguntaAtual.alternativas){
+        const botaoAlternativas = document.createElement("button");
+        botaoAlternativas.textContent = alternativa;
+        caixaAlternativas.appendChild(botaoAlternativas);
+    }
 }
-
-
 mostraPergunta();
-
