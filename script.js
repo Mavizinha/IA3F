@@ -3,18 +3,26 @@ const caixaPerguntas = document.querySelector('.caixa-perguntas');
 const caixaAlternativas = document.querySelector('.caixa-alternativas');
 const caixaResultado = document.querySelector('.caixa-resultado');
 
-const perguntas = [ //serve para abrir lista de perguntas
+const perguntas = [   //serve para abrir lista de perguntas
     {//abre o objeto das perguntas
         enunciado: "O que é a inteligencia artficial?",
-        alternativas: ["Uma pessoa considerada não inteligente","Algo que se aproxima da inteligencia humana, porém artificial"]
+        alternativas: [
+            {texto:"Uma pessoa considerada não inteligente", afirmação:"Afirmação da alternativa1"},
+               
+            {texto:"Algo que se aproxima da inteligencia humana, porém artificial", afirmação:'Afirmação da alternativa2'}]
     },
     {
         enunciado: "As IAs devem ser programadas para:",
-        alternativas: ["Tomar decisões autônomas","Seguir sempre as diretrizes humanas"]
+        alternativas: [
+            {texto:"Tomar decisões autônomas", afirmação:"Afirmação da alternativa1"}
+            {texto:"Seguir sempre as diretrizes humanas", afirmação:"Afirmação da alternativa1"}]
     },
     {
         enunciado: "A IA deve ser usada principalmente para",
-        alternativas: ["Aumentar a eficiência humana","Substituir completamente o trabalho humano"]
+
+        alternativas: [
+            {texto:"Aumentar a eficiência humana",afirmação:"Afirmação da alternativa1",}
+            {texto: "Substituir completamente o trabalho humano", afirmação:"Afirmação da alternativa1"}]
     }
 ]
 
@@ -27,10 +35,12 @@ function mostraPergunta(){
     mostraAlternativas();
 }
 function mostraAlternativas(){
-    for(const alternativa of perguntaAtual.alternativas){
+    for(const alternativa of perguntaAtual.alternativa){
         const botaoAlternativas = document.createElement("button");
         botaoAlternativas.textContent = alternativa;
         caixaAlternativas.appendChild(botaoAlternativas);
+
     }
+    
 }
 mostraPergunta();
